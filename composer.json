@@ -1,6 +1,7 @@
 {
     "name": "meyzie/offers",
     "description": "Magento 2 module to display banner for categories offers",
+    "license": "proprietary",
     "type": "magento2-module",
     "require": {
         "php": "^8.2",
