@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="DnD_Offers::css/banner.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.top">
+            <block name="category.banner.top" template="DnD_Offers::category/banner.phtml" after="navigation.sections">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">DnD\Offers\ViewModel\Category\Banner</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

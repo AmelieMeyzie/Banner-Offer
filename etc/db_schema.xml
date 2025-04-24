@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dnd_offer" resource="default" engine="innodb" comment="Offer">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="text" name="label" nullable="false" comment="Offer Label"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Offer Description"/>
+        <column xsi:type="text" name="image" nullable="true" comment="Offer Image"/>
+        <column xsi:type="text" name="url" nullable="true" comment="Offer Url"/>
+        <column xsi:type="datetime" name="from_date" nullable="true" comment="Offer Start Date"/>
+        <column xsi:type="datetime" name="to_date" nullable="true" comment="Offer End Date"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <table name="dnd_offer_category" resource="default" engine="innodb" comment="Offer by Category">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="offer_id" unsigned="true" nullable="false" comment="Offer ID"/>
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false" comment="Category ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="DND_OFFER_CATEGORY_OFFER_ID_DND_OFFER_ENTITY_ID"
+                    table="dnd_offer_category" column="offer_id" referenceTable="dnd_offer"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="DND_OFFER_CATEGORY_CATEGORY_ID_CATELOG_CATEGORY_ENTITY_ENTITY_ID"
+                    table="dnd_offer_category" column="category_id" referenceTable="catalog_category_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

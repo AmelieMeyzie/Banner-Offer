@@ -1,0 +1,38 @@
+<?php
+
+use DnD\Offers\ViewModel\Category\Banner;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var Banner $viewModel */
+$viewModel = $block->getViewModel();
+$offers = $viewModel->getOffers();
+?>
+<?php if (!empty($offers)): ?>
+    <ul class="carousel-list" data-mage-init='{"slider": {}}'>
+        <?php foreach ($offers as $offer): ?>
+            <li class="carousel-item">
+                <div class="carousel-item-content">
+                    <div class="carousel-item-top">
+                        <?php if ($offer->getImage()): ?>
+                            <div class="carousel-item-image">
+                                <img src="<?= $escaper->escapeUrl($offer->getImage()) ?>"
+                                     alt="<?= $escaper->escapeHtmlAttr($offer->getLabel()) ?>">
+                            </div>
+                        <?php endif; ?>
+                        <div class="carousel-item-description">
+                            <span><?= $escaper->escapeHtml($offer->getDescription()) ?></span>
+                        </div>
+                    </div>
+                    <?php if ($offer->getUrl()): ?>
+                        <div class="carousel-item-bottom">
+                            <a href="<?= $escaper->escapeUrl($offer->getUrl()) ?>"><?= __('more_info') ?></a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="DnD\Offers\Virtual\View\Element\UiComponent\DataProvider\OfferListSearch"
+        type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dnd_offer</argument>
+            <argument name="resourceModel" xsi:type="string">DnD\Offers\Model\ResourceModel\Offer</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dnd_offers_listing_data_source" xsi:type="string">
+                    DnD\Offers\Virtual\View\Element\UiComponent\DataProvider\OfferListSearch
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="DnD\Offers\Api\Data\OfferInterface" type="DnD\Offers\Model\Offer"/>
+    <preference for="DnD\Offers\Api\Data\OfferCategoryInterface" type="DnD\Offers\Model\OfferCategory"/>
+    <preference for="DnD\Offers\Api\OfferRepositoryInterface" type="DnD\Offers\Model\OfferRepository"/>
+    <preference for="DnD\Offers\Api\OfferCategoryRepositoryInterface" type="DnD\Offers\Model\OfferCategoryRepository"/>
+</config>

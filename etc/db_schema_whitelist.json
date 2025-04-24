@@ -1,0 +1,28 @@
+{
+    "dnd_offer": {
+        "column": {
+            "entity_id": true,
+            "label": true,
+            "description": true,
+            "image": true,
+            "url": true,
+            "from_date": true,
+            "to_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "dnd_offer_category": {
+        "column": {
+            "entity_id": true,
+            "offer_id": true,
+            "category_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "DND_OFFER_CATEGORY_OFFER_ID_DND_OFFER_ENTITY_ID": true,
+            "DND_OFFER_CATEGORY_CATEGORY_ID_CATELOG_CATEGORY_ENTITY_ENTITY_ID": true
+        }
+    }
+}

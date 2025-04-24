@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DnD_Offers::offer" title="Banner Offer" module="DnD_Offers" sortOrder="50"
+             dependsOnModule="DnD_Offers" resource="DnD_Offers::offer"/>
+        <add id="DnD_Offers::index" title="Category Offer" module="DnD_Offers" action="offers/offer/index"
+             sortOrder="10" dependsOnModule="DnD_Offers" resource="DnD_Offers::index" parent="DnD_Offers::offer"/>
+    </menu>
+</config>
