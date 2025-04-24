@@ -12,7 +12,10 @@
     "autoload": {
         "psr-4": {
             "DnD\\Offers\\": ""
-        }
+        },
+        "files": [
+            "registration.php"
+        ]
     },
     "authors": [
         {
